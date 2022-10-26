@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.starter.easylauncher'
 }
 
 android {
@@ -24,6 +25,15 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    easylauncher {
+        buildTypes {
+            debug {
+                filters = [
+                        customRibbon(position: "bottom")
+                ]
+            }
         }
     }
     compileOptions {
